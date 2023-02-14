@@ -32,8 +32,7 @@ public class FunzioniMath {
         System.out.println("La sua radice quadrata è: " +radiceQuadrata);
 
         // Verifica che primoNumero sia maggiore di secondoNumero
-        System.out.print("La condizione x > y è: ");
-        System.out.println(primoNumero>secondoNumero);
+        System.out.println("La condizione x > y è: " +(primoNumero>secondoNumero));
 
         // Chiusura degli scanner
         num.close();
