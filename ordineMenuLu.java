@@ -40,6 +40,7 @@ public class ordineMenuLu {
         } else {
             System.out.println("Inserimento errato!");
             correctData=true;
+            menuScelta();
         }
         } while(correctData!=true);    
     }
