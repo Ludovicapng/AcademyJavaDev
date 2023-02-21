@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import javax.print.attribute.standard.NumberUp;
-
 public class TestingArrayList {
 
 
@@ -14,13 +12,15 @@ public class TestingArrayList {
     public static String chooseList;
 
     public static String album[]={"Folklore","Evermore","1989","Speak Now","Midnights","Taylor Swift (2006)","Fearless","Reputation","Red","Lover"};
-    public static String songs[]={"Tim McGraw","End Game","Don't Blame Me","Call It What You Want"};
+    public static Double prezzi[]={17.32,19.99,12.00};
 
     public static Scanner inserimento = new Scanner(System.in);
     public static String nomeDaInserire;
 
-    public static void main(String[] args){
+    public static Scanner inserimentoNum = new Scanner(System.in);
+    public static Double prezzoDaInserire;
 
+    public static void main(String[] args){
 
         menuPrincipale();
 
@@ -43,14 +43,14 @@ public class TestingArrayList {
 
     public static void Visualizzazione(){
         
-        System.out.println("Cosa vuoi visualizzare?\nDigita 'album' per visualizzare la lista di Album disponibili\nDigita 'songs' per visualizzare la lista di singoli disponibili.");
+        System.out.println("Cosa vuoi visualizzare?\nDigita 'album' per visualizzare la lista di Album disponibili\nDigita 'prezzi' per visualizzare la lista dei prezzi.");
         chooseList = list.nextLine();
         if (chooseList.equalsIgnoreCase("album")){
             System.out.println("Lista album: "+Arrays.toString(album));
             menuPrincipale();
 
-        } else if (chooseList.equalsIgnoreCase("songs")) {
-                System.out.println("Lista singoli: "+Arrays.toString(songs));
+        } else if (chooseList.equalsIgnoreCase("prezzi")) {
+                System.out.println("Lista singoli: "+Arrays.toString(prezzi));
                 menuPrincipale();
 
         } else{
@@ -74,19 +74,18 @@ public class TestingArrayList {
                 menuPrincipale();
 
 
-            } else if (chooseList.equalsIgnoreCase("songs")) {
-                System.out.println("Inserisci il singolo da aggiungere: ");
-                nomeDaInserire = inserimento.nextLine();
+            } else if (chooseList.equalsIgnoreCase("prezzi")) {
+                System.out.println("Inserisci il prezzo da aggiungere: ");
+                prezzoDaInserire = inserimentoNum.nextDouble();
 
-                ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(songs));
-                arrayList .add(nomeDaInserire);
-                songs = arrayList.toArray(songs);
-                System.out.println("Lista dopo aver aggiunto l'elemento: "+Arrays.toString(songs));
+                ArrayList<Double> arrayList = new ArrayList<Double>(Arrays.asList(prezzi));
+                arrayList .add(prezzoDaInserire);
+                prezzi = arrayList.toArray(prezzi);
+                System.out.println("Lista dopo aver aggiunto l'elemento: "+Arrays.toString(prezzi));
                 menuPrincipale();
 
             } else {
                 System.out.println("Errore.");
             }
 }
-
 }
