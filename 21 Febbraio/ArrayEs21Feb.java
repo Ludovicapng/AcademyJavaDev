@@ -112,18 +112,22 @@ public class ArrayEs21Feb {
         nuovoInserimento = modificaDato.nextLine();
 
         if (usernameList.contains(nuovoInserimento)){
+            System.out.println(usernameList.indexOf(nuovoInserimento));
+
             usernameList.remove(nuovoInserimento);
             System.out.println("Inserisci il nuovo dato da aggiungere: ");
             nuovoInserimento2 = modificaDato2.nextLine();
             usernameList.add(nuovoInserimento2);
 
-        } else if (passwordList.contains(nuovoInserimento)) {
+        }
+        if (passwordList.contains(nuovoInserimento)) {
             passwordList.remove(nuovoInserimento);
             System.out.println("Inserisci il nuovo dato da aggiungere: ");
             nuovoInserimento2 = modificaDato2.nextLine();
             passwordList.add(nuovoInserimento2);
 
-        } else if(ageList.contains(nuovoInserimento)) {
+        }
+        if(ageList.contains(nuovoInserimento)) {
             ageList.remove(nuovoInserimento);
             System.out.println("Inserisci il nuovo dato da aggiungere: ");
             nuovoInserimento2 = modificaDato2.nextLine();
