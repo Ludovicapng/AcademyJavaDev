@@ -1,6 +1,9 @@
 package EsercizioBiblioteca;
 
 import java.util.Scanner;
+
+import EsercizioFibonacci.Main;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 
@@ -28,14 +31,6 @@ public class Biblioteca {
     // Dichiarazione Boolean
     public static Boolean libroPrestato;
     public static Boolean libroAggiunto;
-
-    /*
-     * public Biblioteca(String[] titolo, int[] copieDisp, int[] copiePrest) {
-     * this.listaLibri = titolo;
-     * this.copieDisponibili = copieDisp;
-     * this.copiePrestate = copiePrest;
-     * }
-     */
 
     public static void prestaLibro() {
         System.out.println("Scegli fra i seguenti libri e digita il nome del libro che vuoi prendere in prestito.");
@@ -80,6 +75,7 @@ public class Biblioteca {
             System.out.println("Libro inesistente.");
             prestaLibro();
         }
+        MainBiblioteca.menuPrincipale();
     }
 
     public static void resituisciLibro() {
@@ -98,7 +94,7 @@ public class Biblioteca {
                 System.out.println("Grazie per aver restituito il libro: " + titoloInserito);
 
             } else if (sceltaConfermata.equalsIgnoreCase("No")) {
-                // Riporta al menù principale . . .
+                MainBiblioteca.menuPrincipale();
 
             } else {
                 System.out.println("Inserimento errato");
@@ -106,12 +102,15 @@ public class Biblioteca {
             }
         } else {
             System.out.println("Libro non trovato.");
-            // Torna al menù principale
+            MainBiblioteca.menuPrincipale();
         }
 
     }
 
     public static void aggiungiLibro() {
+        System.out.println("Attenzione! Questa operazione è riservata agli Amministratori...");
+        Admin.autenticazioneAdmin();
+
         do {
             System.out.println("Digita il nome del libro che vuoi aggiungere.");
             titoloInserito = inserimentoTitolo.nextLine();
@@ -134,13 +133,16 @@ public class Biblioteca {
             copieAggiornate[copieAggiornate.length - 1] = copieNuove;
             copieDisponibili = copieAggiornate;
             System.out.println("Copie inserite con successo!");
-
+            MainBiblioteca.menuPrincipale();
             libroAggiunto = true;
 
         } while (libroAggiunto = false);
     }
 
     public static void rimuoviLibro() {
+        System.out.println("Attenzione! Questa operazione è riservata agli Amministratori...");
+        Admin.autenticazioneAdmin();
+
         System.out.println("Inserisci il titolo del libro che desideri rimuovere");
         titoloInserito = inserimentoTitolo.nextLine();
         int index = -1;
@@ -182,6 +184,7 @@ public class Biblioteca {
         System.out.println("Libro rimosso con successo. \nLista dei libri aggiornata: " + Arrays.toString(listaLibri));
         System.out.println("Lista aggiornata dei libri con le rispettive copie disponibili:\n");
         stampaLibriDisponibili();
+        MainBiblioteca.menuPrincipale();
         }
 
     public static void stampaLibriDisponibili() {
@@ -189,6 +192,7 @@ public class Biblioteca {
         for (int i = 0; i < listaLibri.length; i++) {
             System.out.printf("%-30s\t|\t%d\n", listaLibri[i], copieDisponibili[i]);
         }
+        MainBiblioteca.menuPrincipale();
     }
 
     public static int trovaLibro(String[] titoliLibri, String titoloDaTrovare) {
